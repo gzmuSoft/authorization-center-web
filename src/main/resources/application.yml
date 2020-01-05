@@ -9,5 +9,5 @@ oauth2:
   client:
     id: gzmu-auth
     secret: gzmu-auth-secret
-    scopes: all
+    scopes: READ
     introspection-uri: http://127.0.0.1:8888/oauth/check_token

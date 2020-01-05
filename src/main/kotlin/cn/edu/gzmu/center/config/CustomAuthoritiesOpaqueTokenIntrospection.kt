@@ -2,7 +2,6 @@ package cn.edu.gzmu.center.config
 
 import cn.edu.gzmu.center.model.extension.AUTHORITIES
 import cn.edu.gzmu.center.model.property.OauthClient
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.oauth2.core.DefaultOAuth2AuthenticatedPrincipal

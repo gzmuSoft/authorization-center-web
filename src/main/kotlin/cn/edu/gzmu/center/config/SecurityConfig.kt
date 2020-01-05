@@ -18,18 +18,14 @@ import org.springframework.security.web.server.SecurityWebFilterChain
  */
 @EnableWebFluxSecurity
 class SecurityConfig(
-    val customAuthoritiesOpaqueTokenIntrospector: ReactiveOpaqueTokenIntrospector
+    val customAuthoritiesOpaqueTokenIntrospection: ReactiveOpaqueTokenIntrospector
 ) {
   @Bean
   fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain =
       http
           .authorizeExchange { exchanges: AuthorizeExchangeSpec ->
             exchanges
-                // 可以在这里对 scope 进行决策
-                .pathMatchers(HttpMethod.GET, "/message/**").hasAuthority("all")
-                .pathMatchers(HttpMethod.POST, "/message/**").hasAuthority("all")
-                // 所有的请求都需要授权
-                .anyExchange().authenticated()
+                .anyExchange().permitAll()
           }
           .oauth2ResourceServer { oauth2ResourceServer: OAuth2ResourceServerSpec ->
             oauth2ResourceServer
@@ -37,7 +33,7 @@ class SecurityConfig(
 //                .jwt(withDefaults())
                 .opaqueToken { opaqueToken ->
                   opaqueToken
-                      .introspector(customAuthoritiesOpaqueTokenIntrospector)
+                      .introspector(customAuthoritiesOpaqueTokenIntrospection)
                 }
           }
           .csrf().disable()
