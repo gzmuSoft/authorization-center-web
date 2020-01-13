@@ -3,14 +3,13 @@ package cn.edu.gzmu.center.model.entity
 import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
-
 /**
- * .
+ * 授权中心的资源.
  *
  * @author <a href="https://echocow.cn">EchoCow</a>
- * @date 2020/1/4 下午8:30
+ * @date 2020/1/11 下午11:01
  */
-data class SysRes(
+data class AuthCenterRes(
     @Id var id: Long?,
     var name: String?,
     var spell: String?,
@@ -23,6 +22,5 @@ data class SysRes(
     var isEnable: Boolean?,
     var url: String?,
     var describe: String?,
-    var method: String?,
-    var scopes: String?
+    var method: String?
 )

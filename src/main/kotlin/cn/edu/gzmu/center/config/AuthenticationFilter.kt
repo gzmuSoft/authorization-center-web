@@ -1,8 +1,6 @@
 package cn.edu.gzmu.center.config
 
 import org.springframework.core.annotation.Order
-import org.springframework.security.access.AccessDeniedException
-import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthentication
 import org.springframework.stereotype.Component
 import org.springframework.web.server.ServerWebExchange
 import org.springframework.web.server.WebFilter
@@ -18,7 +16,8 @@ import reactor.core.publisher.Mono
 @Component
 @Order(Int.MAX_VALUE)
 class AuthenticationFilter: WebFilter {
-  override fun filter(exchange: ServerWebExchange, chain: WebFilterChain): Mono<Void> {
-    return chain.filter(exchange)
-  }
+
+  override fun filter(exchange: ServerWebExchange, chain: WebFilterChain): Mono<Void>
+    = chain.filter(exchange)
+
 }

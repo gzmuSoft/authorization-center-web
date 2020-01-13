@@ -5,11 +5,16 @@ import cn.edu.gzmu.center.repository.SysResRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder
 import reactor.test.StepVerifier
 import java.time.LocalDateTime
 
 @SpringBootTest
 class AuthorizationCenterApplicationTests {
+
+  @MockBean
+  private lateinit var reactiveJwtDecoder: ReactiveJwtDecoder
 
   @Autowired
   private lateinit var sysResRepository: SysResRepository
